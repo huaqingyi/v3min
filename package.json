@@ -1,0 +1,48 @@
+{
+  "name": "core-factory",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "cross-env NODE_ENV=development vue-cli-service serve",
+    "build": "cross-env NODE_ENV=production vue-cli-service build",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "axios": "^0.21.0",
+    "core-js": "^3.6.5",
+    "element-plus": "^1.0.1-beta.8",
+    "fuse.js": "^6.4.3",
+    "js-cookie": "^2.2.1",
+    "lodash": "^4.17.20",
+    "nprogress": "^0.2.0",
+    "path": "^0.12.7",
+    "path-to-regexp": "^6.2.0",
+    "reflect-metadata": "^0.1.13",
+    "screenfull": "^5.0.2",
+    "vue": "^3.0.0",
+    "vue-i18n": "^9.0.0-beta.12",
+    "vue-pandora-decorators": "^1.0.4",
+    "vue-router": "^4.0.0-0",
+    "vuex": "^4.0.0-0"
+  },
+  "devDependencies": {
+    "@types/js-cookie": "^2.2.6",
+    "@types/lodash": "^4.14.165",
+    "@types/nprogress": "^0.2.0",
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-router": "~4.5.0",
+    "@vue/cli-plugin-typescript": "~4.5.0",
+    "@vue/cli-plugin-vuex": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "@vue/compiler-sfc": "^3.0.0",
+    "cross-env": "^7.0.3",
+    "register-service-worker": "^1.7.2",
+    "sass": "^1.30.0",
+    "sass-loader": "^8.0.2",
+    "simple-progress-webpack-plugin": "^1.1.2",
+    "style-resources-loader": "^1.4.1",
+    "typescript": "~3.9.3",
+    "vue-cli-plugin-style-resources-loader": "^0.1.4",
+    "vue-template-compiler": "^2.6.12"
+  }
+}
