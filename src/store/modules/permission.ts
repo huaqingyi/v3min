@@ -24,7 +24,7 @@ const filterAsyncRoutes = (routes: RouteRecordRaw[], roles: string[], prefiex: s
     const res: RouteRecordRaw[] = [];
     routes.forEach(route => {
         const r = { ...route };
-        if (!r.name) r.name = Symbol(`${prefiex}${r.path}`);
+        if (!r.name) r.name = Symbol(`${prefiex}${r.path}`).toString();
         if (hasPermission(roles, r)) {
             if (r.children) {
                 r.children = filterAsyncRoutes(r.children, roles, r.path);

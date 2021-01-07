@@ -1,4 +1,3 @@
-import { App } from 'vue';
 import router, { resetRouter } from '@/router';
 import { NavigationGuardNext, RouteLocationNormalized } from 'vue-router';
 import { isFunction, map } from 'lodash';
@@ -51,7 +50,6 @@ export class PermissionController {
                     router.replace({ path: this.to.path, params: this.to.params, query: this.to.query, replace: true });
                     return await PermissionErrorType.DONE;
                 } else {
-                    console.log(router.getRoutes());
                     return await PermissionErrorType.SUCCESS;
                 }
             } catch (err) {

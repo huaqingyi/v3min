@@ -65,23 +65,23 @@ export default class extends Vue {
         return Layout.tabType;
     }
 
-    public get selectTab(){
+    public get selectTab() {
         return Layout.selectTab;
     }
 
-    public get removeTab(){
+    public get removeTab() {
         return Layout.removeTab;
     }
 
-    public get closeAllTab(){
+    public get closeAllTab() {
         return Layout.closeAllTab;
     }
 
-    public get closeOtherTab(){
+    public get closeOtherTab() {
         return Layout.closeOtherTab;
     }
 
-    public get closeCurrentTab(){
+    public get closeCurrentTab() {
         return Layout.closeCurrentTab;
     }
 
@@ -138,6 +138,7 @@ export default class extends Vue {
                 if (!hidden && meta && config.defaultTab === pane.name) {
                     list.push({
                         title: meta.title,
+                        name: currentName, noCache: meta.noCache || false,
                         path: _path.resolve(prefix, path),
                         closable: !(currentName === pane.name),
                     } as any);
@@ -147,9 +148,11 @@ export default class extends Vue {
     }
 
     public dynamicMenu() {
-        const title = this.$route.meta.title;
+        const title = (this.$route.meta || {}).title;
+        const noCache = (this.$route.meta || {}).noCache || false;
         const path = this.$route.path;
-        Layout.addTab({ title, path } as any);
+        const name = this.$route.name;
+        Layout.addTab({ title, path, name, noCache } as any);
     }
 
     public callback(key: string) {
