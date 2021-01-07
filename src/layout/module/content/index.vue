@@ -6,9 +6,6 @@
                 <keep-alive>
                     <component :is="Component" :key="route.fullPath"></component>
                 </keep-alive>
-                <!-- <keep-alive :include="cacheViews">
-                    <component :is="Component"></component>
-                </keep-alive> -->
             </transition>
         </router-view>
     </div>
