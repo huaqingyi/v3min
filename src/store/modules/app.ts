@@ -1,26 +1,4 @@
-/*
- * @FilePath: /vue3-template/src/store/modules/app.ts
- * @Descripttion: 
- * @version: 
- * @Author: 易华青
- * @Date: 2020-12-15 15:25:26
- * @LastEditors: huaqingyi
- * @LastEditTime: 2020-12-15 15:59:29
- * @debugger: 
- */
-import {
-    VuexModule,
-    Module,
-    Mutation,
-    Action,
-    getModule,
-} from 'vuex-module-decorators';
-import {
-    getSidebarStatus,
-    getSize,
-    setSidebarStatus,
-    setSize,
-} from '@/utils/cookies';
+import { VuexModule, Module, Mutation, Action, getModule } from 'vue-pandora-decorators';
 import store from '@/store';
 
 export enum DeviceType {
@@ -29,71 +7,43 @@ export enum DeviceType {
 }
 
 export interface IAppState {
-    device: DeviceType;
-    sidebar: {
-        opened: boolean;
-        withoutAnimation: boolean;
-    };
-    size: string;
+    cancelToken: any[];
 }
 
 @Module({ dynamic: true, store, name: 'app' })
-class App extends VuexModule implements IAppState {
-    public sidebar = {
-        opened: getSidebarStatus() !== 'closed',
-        withoutAnimation: false,
-    };
-    public device = DeviceType.Desktop;
-    public size = getSize() || 'medium';
+class AppStore extends VuexModule implements IAppState {
 
-    @Mutation
-    private TOGGLE_SIDEBAR(withoutAnimation: boolean) {
-        this.sidebar.opened = !this.sidebar.opened;
-        this.sidebar.withoutAnimation = withoutAnimation;
-        if (this.sidebar.opened) {
-            setSidebarStatus('opened');
-        } else {
-            setSidebarStatus('closed');
-        }
-    }
+    public cancelToken: any[];
 
-    @Mutation
-    private CLOSE_SIDEBAR(withoutAnimation: boolean) {
-        this.sidebar.opened = false;
-        this.sidebar.withoutAnimation = withoutAnimation;
-        setSidebarStatus('closed');
-    }
-
-    @Mutation
-    private TOGGLE_DEVICE(device: DeviceType) {
-        this.device = device;
-    }
-
-    @Mutation
-    private SET_SIZE(size: string) {
-        this.size = size;
-        setSize(this.size);
+    constructor(module: AppStore) {
+        super(module);
+        this.cancelToken = [];
     }
 
     @Action
-    public ToggleSideBar(withoutAnimation: boolean) {
-        this.TOGGLE_SIDEBAR(withoutAnimation);
+    public execCancelToken() {
+        return this.execCancelTokenSuccess();
+    }
+
+    @Mutation
+    private execCancelTokenSuccess() {
+        this.cancelToken.forEach(executor => {
+            executor('路由跳转取消上个页面的请求');
+        });
+        this.cancelToken = [];
+        return this.cancelToken;
     }
 
     @Action
-    public CloseSideBar(withoutAnimation: boolean) {
-        this.CLOSE_SIDEBAR(withoutAnimation);
+    public pushCancelToken(payload: { cancelToken: any }) {
+        return this.pushCancelTokenSuccess(payload);
     }
 
-    @Action
-    public ToggleDevice(device: DeviceType) {
-        this.TOGGLE_DEVICE(device);
-    }
-
-    @Action
-    public SetSize(size: string) {
-        this.SET_SIZE(size);
+    @Mutation
+    private pushCancelTokenSuccess(payload: { cancelToken: any }) {
+        this.cancelToken.push(payload.cancelToken);
+        return this.cancelToken;
     }
 }
 
-export const AppModule = getModule(App);
+export const App = getModule(AppStore);

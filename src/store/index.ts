@@ -1,12 +1,11 @@
 import { createStore } from 'vuex';
-import { PermissionState } from './modules/permission';
-import { SettingsState } from './modules/settings';
-import { UserState } from './modules/user';
+import { IAppState, ILayoutState, IUserState, IPermissionState } from './modules';
 
 export interface IRootState {
-    permission: PermissionState;
-    setting: SettingsState;
-    user: UserState;
+    app: IAppState;
+    setting: ILayoutState;
+    user: IUserState;
+    permission: IPermissionState;
 }
 
 export default createStore<IRootState>({});

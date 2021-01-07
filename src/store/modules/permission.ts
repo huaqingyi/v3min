@@ -1,32 +1,45 @@
-/*
- * @FilePath: /vue3-template/src/store/modules/permission.ts
- * @Descripttion: 
- * @version: 
- * @Author: 易华青
- * @Date: 2020-12-14 14:29:04
- * @LastEditors: huaqingyi
- * @LastEditTime: 2020-12-15 16:07:37
- * @debugger: 
- */
 import { VuexModule, Module, Action, Mutation, getModule } from 'vue-pandora-decorators';
 import { RouteRecordRaw } from 'vue-router';
 import { PermissionService } from '../service/permission.service';
 import asyncRoutes from '@/layout/router';
-import { UserModule } from './user';
 import store from '@/store';
-import { routes as constantRoutes } from '@/rotuer';
+import { routes as constantRoutes } from '@/router';
 
-export interface PermissionState {
+export interface IPermissionState {
     roles: string[];
 }
 
-const filterAsyncRoutes = (routes: RouteRecordRaw[], _roles: string[]) => {
+const hasPermission = (roles: string[], route: RouteRecordRaw) => {
     // TODO: 这里为权限过滤逻辑
-    return routes;
+    // if (route.meta && route.meta.roles) {
+    //     return roles.some(role => (route.meta || {}).roles.includes(role));
+    // } else {
+    //     return true;
+    // }
+    return true;
+};
+
+const filterAsyncRoutes = (routes: RouteRecordRaw[], roles: string[], prefiex: string = '/') => {
+    // TODO: 这里为权限过滤逻辑
+    const res: RouteRecordRaw[] = [];
+    routes.forEach(route => {
+        const r = { ...route };
+        if (!r.name) r.name = Symbol(`${prefiex}${r.path}`);
+        if (hasPermission(roles, r)) {
+            if (r.children) {
+                r.children = filterAsyncRoutes(r.children, roles, r.path);
+            }
+            res.push(r);
+            if (r.children && r.children.length === 0 && !r.redirect) {
+                res.pop();
+            }
+        }
+    });
+    return res;
 }
 
 @Module({ dynamic: true, store, name: 'permission' })
-class Permission extends VuexModule implements PermissionState {
+class PermissionStore extends VuexModule implements IPermissionState {
     public service: PermissionService;
     public roles: string[];
 
@@ -55,7 +68,7 @@ class Permission extends VuexModule implements PermissionState {
 
     @Action
     public isLogin() {
-        return UserModule.token ? true : false;
+        return sessionStorage.getItem('token') ? true : false;
     }
 
     @Action
@@ -75,25 +88,17 @@ class Permission extends VuexModule implements PermissionState {
     @Action
     public resetToken(token?: string) {
         this.removeToken();
-        if (token) { localStorage.setItem('token', token); }
+        if (token) { sessionStorage.setItem('token', token); }
+    }
+
+    @Action
+    public setRemoveToken() {
+        this.removeToken();
     }
 
     @Mutation
     private removeToken() {
-        localStorage.removeItem('token');
-    }
-
-    @Action
-    public test(roles: string[]) {
-        console.log(this);
-        return this.setTest(roles);
-    }
-
-    @Mutation
-    private setTest(roles: string[]) {
-        console.log(roles);
-        this.roles = roles;
-        return roles;
+        sessionStorage.removeItem('token');
     }
 
     // @Action
@@ -109,5 +114,5 @@ class Permission extends VuexModule implements PermissionState {
     // }
 }
 
-export const PermissionModule = getModule(Permission);
+export const Permission = getModule(PermissionStore);
 

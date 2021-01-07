@@ -1,15 +1,16 @@
-/*
- * @FilePath: /core-factory/src/main.ts
- * @Descripttion: 
- * @version: 
- * @Author: 易华青
- * @Date: 2020-12-16 10:20:32
- * @LastEditors: huaqingyi
- * @LastEditTime: 2020-12-16 12:40:08
- * @debugger: 
- */
-import { app } from './core';
+import { map } from 'lodash';
+import { app } from '@/core';
+import * as middlewares from '@/core/middlewares';
+import * as interceptors from '@/interceptors';
+import router from '@/router';
 
-window.onload = () => {
-    app.mount('#app');
-};
+export async function bootstrap() {
+    await Promise.all<any>([
+        router.isReady(),
+        ...map(interceptors, its => its(app)),
+        ...map(middlewares, use => use(app)),
+    ]);
+    return app.mount('#app');
+}
+
+bootstrap();
