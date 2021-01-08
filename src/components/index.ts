@@ -5,7 +5,7 @@ import PageFooter from './pageFooter/index.vue';
 import CardBase from './cardBase/index.vue';
 import Count from './count/index.vue';
 import { map } from 'lodash';
-import { Compvar } from './factory';
+import { Compvar, Asyncomponent } from './factory';
 
 const components = {
     'page-footer': PageFooter,
@@ -14,6 +14,7 @@ const components = {
     'card-base': CardBase,
     'count': Count,
     'comp-var': Compvar,
+    'async-component': Asyncomponent,
 };
 
 const install: any & Plugin = (app: App) => {

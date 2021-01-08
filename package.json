@@ -13,9 +13,10 @@
     "lodash": "^4.17.20",
     "nprogress": "^0.2.0",
     "path": "^0.12.7",
-    "register-service-worker": "^1.7.1",
+    "register-service-worker": "^1.7.2",
     "vue": "^3.0.0",
     "vue-class-component": "^8.0.0-0",
+    "vue-i18n": "^9.0.0-rc.1",
     "vue-pandora-decorators": "^1.0.6",
     "vue-router": "^4.0.2",
     "vuex": "^4.0.0-0"

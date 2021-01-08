@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory, RouteRecordName, RouteRecordRaw } from 'vue-router';
+import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
 import { map } from 'lodash';
 
 export const routes: RouteRecordRaw[] = [

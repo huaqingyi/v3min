@@ -1,4 +1,3 @@
-import { map } from 'lodash';
 import { defineComponent } from 'vue';
 
 export const Compvar = defineComponent({

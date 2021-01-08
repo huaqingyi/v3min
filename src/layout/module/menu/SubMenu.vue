@@ -23,6 +23,7 @@
         <!-- if item.chilren is null 渲染 a-menu-item -->
         <a-menu-item v-bind="$attrs" :key="resolvePath(item.path, true)" v-else>
             <router-link :to="resolvePath(item.path, true)">
+                <!-- <MenuIcon v-if="level && level === 0" /> -->
                 <comp-var v-if="level && level === 0" :component="MenuIcon" />
                 <span v-else>
                     <div class="indent"></div>

@@ -3,9 +3,12 @@
     <div id="content">
         <router-view v-slot="{ Component, route }" v-if="routerActive">
             <transition :name="routerAnimate">
-                <keep-alive>
-                    <component :is="Component" :key="route.fullPath"></component>
+                <keep-alive v-if="(route.mate || {}).noCache !== true">
+                    <component :is="Component" :key="route.fullPath" />
                 </keep-alive>
+                <template v-else>
+                    <component :is="Component" :key="route.fullPath"></component>
+                </template>
             </transition>
         </router-view>
     </div>

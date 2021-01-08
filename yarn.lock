@@ -996,6 +996,44 @@
     cssnano-preset-default "^4.0.0"
     postcss "^7.0.0"
 
+"@intlify/core-base@9.0.0-rc.1":
+  version "9.0.0-rc.1"
+  resolved "https://registry.npm.taobao.org/@intlify/core-base/download/@intlify/core-base-9.0.0-rc.1.tgz#92bd60c222626c1cb8a01234a1662cf11a5a7261"
+  integrity sha1-kr1gwiJibBy4oBI0oWYs8RpacmE=
+  dependencies:
+    "@intlify/message-compiler" "9.0.0-rc.1"
+    "@intlify/message-resolver" "9.0.0-rc.1"
+    "@intlify/runtime" "9.0.0-rc.1"
+    "@intlify/shared" "9.0.0-rc.1"
+
+"@intlify/message-compiler@9.0.0-rc.1":
+  version "9.0.0-rc.1"
+  resolved "https://registry.npm.taobao.org/@intlify/message-compiler/download/@intlify/message-compiler-9.0.0-rc.1.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40intlify%2Fmessage-compiler%2Fdownload%2F%40intlify%2Fmessage-compiler-9.0.0-rc.1.tgz#152a971a634fe8b581a033a552bd637da2b2a259"
+  integrity sha1-FSqXGmNP6LWBoDOlUr1jfaKyolk=
+  dependencies:
+    "@intlify/message-resolver" "9.0.0-rc.1"
+    "@intlify/shared" "9.0.0-rc.1"
+    source-map "0.6.1"
+
+"@intlify/message-resolver@9.0.0-rc.1":
+  version "9.0.0-rc.1"
+  resolved "https://registry.npm.taobao.org/@intlify/message-resolver/download/@intlify/message-resolver-9.0.0-rc.1.tgz?cache=0&sync_timestamp=1609925475187&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40intlify%2Fmessage-resolver%2Fdownload%2F%40intlify%2Fmessage-resolver-9.0.0-rc.1.tgz#f3c4c1b6e2ffb9cd6c6f6cd40bf92d339b847c65"
+  integrity sha1-88TBtuL/uc1sb2zUC/ktM5uEfGU=
+
+"@intlify/runtime@9.0.0-rc.1":
+  version "9.0.0-rc.1"
+  resolved "https://registry.npm.taobao.org/@intlify/runtime/download/@intlify/runtime-9.0.0-rc.1.tgz?cache=0&sync_timestamp=1609926111554&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40intlify%2Fruntime%2Fdownload%2F%40intlify%2Fruntime-9.0.0-rc.1.tgz#400a99eb6f01820d34ce5a5385a15657c004099a"
+  integrity sha1-QAqZ628Bgg00zlpThaFWV8AECZo=
+  dependencies:
+    "@intlify/message-compiler" "9.0.0-rc.1"
+    "@intlify/message-resolver" "9.0.0-rc.1"
+    "@intlify/shared" "9.0.0-rc.1"
+
+"@intlify/shared@9.0.0-rc.1":
+  version "9.0.0-rc.1"
+  resolved "https://registry.npm.taobao.org/@intlify/shared/download/@intlify/shared-9.0.0-rc.1.tgz?cache=0&sync_timestamp=1609943610627&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40intlify%2Fshared%2Fdownload%2F%40intlify%2Fshared-9.0.0-rc.1.tgz#73a57c74682b09a6f7f69b1b43904384a344c05e"
+  integrity sha1-c6V8dGgrCab39psbQ5BDhKNEwF4=
+
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"
   resolved "https://registry.npm.taobao.org/@mrmlnc/readdir-enhanced/download/@mrmlnc/readdir-enhanced-2.2.1.tgz#524af240d1a360527b730475ecfa1344aa540dde"
@@ -1568,6 +1606,11 @@
     vue-template-es2015-compiler "^1.9.0"
   optionalDependencies:
     prettier "^1.18.2"
+
+"@vue/devtools-api@^6.0.0-beta.3":
+  version "6.0.0-beta.3"
+  resolved "https://registry.npm.taobao.org/@vue/devtools-api/download/@vue/devtools-api-6.0.0-beta.3.tgz#5a66cc8beed688fe18c272ee7a8bd8ed7e35a54c"
+  integrity sha1-WmbMi+7WiP4YwnLueovY7X41pUw=
 
 "@vue/preload-webpack-plugin@^1.1.0":
   version "1.1.2"
@@ -7673,7 +7716,7 @@ regexpu-core@^4.7.1:
     unicode-match-property-ecmascript "^1.0.4"
     unicode-match-property-value-ecmascript "^1.2.0"
 
-register-service-worker@^1.7.1:
+register-service-worker@^1.7.2:
   version "1.7.2"
   resolved "https://registry.npm.taobao.org/register-service-worker/download/register-service-worker-1.7.2.tgz?cache=0&sync_timestamp=1607600654641&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fregister-service-worker%2Fdownload%2Fregister-service-worker-1.7.2.tgz#6516983e1ef790a98c4225af1216bc80941a4bd2"
   integrity sha1-ZRaYPh73kKmMQiWvEha8gJQaS9I=
@@ -8243,6 +8286,11 @@ source-map-url@^0.4.0:
   resolved "https://registry.npmjs.org/source-map-url/-/source-map-url-0.4.0.tgz#3e935d7ddd73631b97659956d55128e87b5084a3"
   integrity sha1-PpNdfd1zYxuXZZlW1VEo6HtQhKM=
 
+source-map@0.6.1, source-map@^0.6.0, source-map@^0.6.1, source-map@~0.6.0, source-map@~0.6.1:
+  version "0.6.1"
+  resolved "https://registry.npmjs.org/source-map/-/source-map-0.6.1.tgz#74722af32e9614e9c287a8d0bbde48b5e2f1a263"
+  integrity sha512-UjgapumWlbMhkBgzT7Ykc5YXUT46F0iKu8SGXq0bcwP5dz/h0Plj6enJqjz1Zbq2l5WaqYnrVbwWOWMyF3F47g==
+
 source-map@^0.4.2:
   version "0.4.4"
   resolved "https://registry.npm.taobao.org/source-map/download/source-map-0.4.4.tgz#eba4f5da9c0dc999de68032d8b4f76173652036b"
@@ -8254,11 +8302,6 @@ source-map@^0.5.0, source-map@^0.5.6:
   version "0.5.7"
   resolved "https://registry.npmjs.org/source-map/-/source-map-0.5.7.tgz#8a039d2d1021d22d1ea14c80d8ea468ba2ef3fcc"
   integrity sha1-igOdLRAh0i0eoUyA2OpGi6LvP8w=
-
-source-map@^0.6.0, source-map@^0.6.1, source-map@~0.6.0, source-map@~0.6.1:
-  version "0.6.1"
-  resolved "https://registry.npmjs.org/source-map/-/source-map-0.6.1.tgz#74722af32e9614e9c287a8d0bbde48b5e2f1a263"
-  integrity sha512-UjgapumWlbMhkBgzT7Ykc5YXUT46F0iKu8SGXq0bcwP5dz/h0Plj6enJqjz1Zbq2l5WaqYnrVbwWOWMyF3F47g==
 
 source-map@^0.7.3:
   version "0.7.3"
@@ -9151,6 +9194,15 @@ vue-hot-reload-api@^2.3.0:
   version "2.3.4"
   resolved "https://registry.npm.taobao.org/vue-hot-reload-api/download/vue-hot-reload-api-2.3.4.tgz#532955cc1eb208a3d990b3a9f9a70574657e08f2"
   integrity sha1-UylVzB6yCKPZkLOp+acFdGV+CPI=
+
+vue-i18n@^9.0.0-rc.1:
+  version "9.0.0-rc.1"
+  resolved "https://registry.npm.taobao.org/vue-i18n/download/vue-i18n-9.0.0-rc.1.tgz?cache=0&sync_timestamp=1610077297812&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fvue-i18n%2Fdownload%2Fvue-i18n-9.0.0-rc.1.tgz#47188d60cb1de2818924cdb6abecedf4e97b5cda"
+  integrity sha1-RxiNYMsd4oGJJM22q+zt9Ol7XNo=
+  dependencies:
+    "@intlify/core-base" "9.0.0-rc.1"
+    "@intlify/shared" "9.0.0-rc.1"
+    "@vue/devtools-api" "^6.0.0-beta.3"
 
 "vue-loader-v16@npm:vue-loader@^16.0.0-beta.7":
   version "16.1.2"

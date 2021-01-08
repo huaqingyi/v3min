@@ -1,3 +1,4 @@
+import { t } from '@/locales';
 import { RouteRecordRaw } from 'vue-router';
 
 export default [
@@ -9,17 +10,17 @@ export default [
     },
     {
         path: '/dashboard',
-        meta: { title: '工作空间', icon: 'HomeOutlined' },
+        meta: { title: t('dashboard.analysis'), icon: 'HomeOutlined' },
         component: () => import('./index.vue'),
         children: [
             {
                 path: 'index',
-                meta: { title: '分析页', icon: 'DashboardOutlined', fixed: true },
+                meta: { title: t('dashboard.analysis'), icon: 'DashboardOutlined', fixed: true },
                 component: () => import('@/pages/dashboard/dashboard.vue'),
             },
             {
                 path: 'tables',
-                meta: { title: '分析页1', icon: 'HomeOutlined', fixed: true },
+                meta: { title: t('dashboard.welcome'), icon: 'HomeOutlined', fixed: true },
                 component: () => import('@/pages/tables/tables.vue'),
             }
         ]
