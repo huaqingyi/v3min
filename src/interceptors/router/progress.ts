@@ -1,5 +1,3 @@
-import { App as Application } from 'vue';
-import router from '@/router';
 import { NavigationGuardNext, RouteLocationNormalized } from 'vue-router';
 import NProgress from 'nprogress';
 import { App } from '@/store/modules';

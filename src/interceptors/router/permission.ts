@@ -47,7 +47,7 @@ export class PermissionController {
                     Permission.generateRoutes(roles);
                     resetRouter();
                     map(Permission.dynamicRoutes, (r) => router.addRoute(r));
-                    router.replace({ path: this.to.path, params: this.to.params, query: this.to.query, replace: true });
+                    router.replace({ path: this.to.fullPath, query: this.to.query || {}, replace: true });
                     return await PermissionErrorType.DONE;
                 } else {
                     return await PermissionErrorType.SUCCESS;

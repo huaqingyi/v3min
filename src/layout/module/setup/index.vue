@@ -157,19 +157,19 @@
                 <div class="color-title">更多设置</div>
                 <div class="color-content">
                     <br />
-                    <a-switch v-model:checked="logo" @change="onChangeLogo" />
+                    <a-switch :checked="logo" @change="onChangeLogo" />
                     <div class="setting-title-right">菜单头部</div>
                     <br />
                     <br />
-                    <a-switch v-model:checked="tab" @change="onChangeTab" />
+                    <a-switch :checked="tab" @change="onChangeTab" />
                     <div class="setting-title-right">多选项卡</div>
                     <br />
                     <br />
-                    <a-switch v-model:checked="fixedHeader" @change="onChangeFixedHeader" />
+                    <a-switch :checked="fixedHeader" @change="onChangeFixedHeader" />
                     <div class="setting-title-right">固定头部</div>
                     <br />
                     <br />
-                    <a-switch v-model:checked="fixedSide" @change="onChangeFixedSide" />
+                    <a-switch :checked="fixedSide" @change="onChangeFixedSide" />
                     <div class="setting-title-right">固定侧边</div>
                     <br />
                     <br />

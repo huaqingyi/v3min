@@ -2,7 +2,7 @@
     <div id="menu">
         <a-menu
             v-model:openKeys="openKey"
-            v-model:selectedKeys="selectKey"
+            :selectedKeys="selectKey"
             :mode="menuModel"
             :theme="menuTheme"
             @openChange="openChange"
@@ -22,6 +22,7 @@ import SubMenu from './SubMenu.vue';
 import { RouteRecordRaw } from 'vue-router';
 import { Component, Vue } from 'vue-pandora-decorators';
 import { Layout, Permission } from '@/store/modules';
+import { computed, watch } from 'vue';
 
 @Component({
     components: {
@@ -57,11 +58,11 @@ export default class extends Vue {
         return Layout.activeKey;
     }
 
-    public get openKey(){
+    public get openKey() {
         return [...this.storeOpenKey];
     }
 
-    public get selectKey(){
+    public get selectKey() {
         return [this.activeKey];
     }
 
@@ -77,8 +78,8 @@ export default class extends Vue {
     }
 
     public mounted() {
-        this.$watch('layout', this.changeLayout.bind(this));
-        this.$watch('$route.fullPath', this.dynamicRoute.bind(this));
+        watch(computed(() => this.layout), this.changeLayout.bind(this));
+        watch(computed(() => this.$route.fullPath), this.dynamicRoute.bind(this));
         this.dynamicRoute();
     }
 

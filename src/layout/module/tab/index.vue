@@ -85,28 +85,27 @@ export default class extends Vue {
         return Layout.closeCurrentTab;
     }
 
+    public get panes(): any[] {
+        return Layout.panes;
+    }
+
     public initPanes: RouteRecordRaw[];
-    public panes: any[];
     public activeKey: string;
-    public menu: RouteRecordRaw[];
     public state: { menu: RouteRecordRaw[]; };
     public placement: string;
 
     constructor() {
         super(arguments);
         this.initPanes = [];
-        this.panes = this.initPanes;
         this.activeKey = Layout.activeKey;
-        this.menu = Permission.dynamicRoutes;
-        this.state = { menu: this.menu };
+        this.state = { menu: Permission.dynamicRoutes };
         this.placement = 'bottomRight';
     }
 
     public created() {
-        this.findFixedPane(this.initPanes, '', this.menu);
-        this.$watch('$route', this.dynamicMenu.bind(this), { deep: true });
-        watch(computed(() => Layout.panes), (n) => this.panes = n, { deep: true, immediate: true });
-        this.$watch('storeKey', (targetKey: string) => {
+        this.findFixedPane(this.initPanes, '', Permission.dynamicRoutes);
+        watch(computed(() => this.$route.fullPath), this.dynamicMenu.bind(this));
+        watch(computed(() => this.storeKey), (targetKey: string) => {
             this.activeKey = targetKey;
             this.$router.push(targetKey);
         });
