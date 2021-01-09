@@ -127,7 +127,6 @@ import { filter } from 'lodash';
 import { computed, nextTick, watch } from 'vue';
 import { message } from 'ant-design-vue';
 import { langs, LangsType, setLanguage } from '@/locales';
-import { useI18n } from 'vue-i18n';
 
 @Component({
     components: {
