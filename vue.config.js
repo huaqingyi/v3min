@@ -5,15 +5,15 @@ const { cpus } = require('os');
 // If your port is set to 80,
 // use administrator privileges to execute the command line.
 // For example, on Mac: sudo npm run / sudo yarn
-const devServerPort = 8080; // TODO: get this variable from setting.ts
-const mockServerPort = 9528; // TODO: get this variable from setting.ts
-const name = 'Admin'; // TODO: get this variable from setting.ts
+const devServerPort = 8080;
+const name = 'Admin';
 
 module.exports = {
     lintOnSave: false,
-    publicPath: process.env.NODE_ENV === 'production' ? '/' : '/',
+    // publicPath: process.env.NODE_ENV === 'production' ? '/' : '/',
     productionSourceMap: false,
     devServer: {
+        hot: true,
         port: devServerPort,
         open: true,
         overlay: {

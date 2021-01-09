@@ -5,4 +5,4 @@ export default {
         workbench: 'Workbench',
         analysis: 'Analysis',
     },
-}
+};
