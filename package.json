@@ -6,6 +6,15 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build"
   },
+  "keywords": [
+    "vue3",
+    "vue3.0",
+    "ts",
+    "typescript",
+    "admin",
+    "decorator",
+    "decorators"
+  ],
   "dependencies": {
     "ant-design-vue": "^2.0.0-rc.7",
     "axios": "^0.21.1",
