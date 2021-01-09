@@ -8,7 +8,7 @@
                     <span v-else>
                         <div class="indent"></div>
                     </span>
-                    <span>{{ (item.meta || {}).title }}</span>
+                    <span>{{ $t((item.meta || {}).title) }}</span>
                 </span>
             </template>
             <!-- 递归 item.children -->
@@ -28,7 +28,7 @@
                 <span v-else>
                     <div class="indent"></div>
                 </span>
-                <span>{{ (item.meta || {}).title }}</span>
+                <span>{{ $t((item.meta || {}).title) }}</span>
             </router-link>
         </a-menu-item>
     </template>
@@ -38,6 +38,7 @@
 import path from 'path';
 import * as Icons from '@ant-design/icons-vue';
 import { Component, prop, Vue, WithDefault } from 'vue-pandora-decorators';
+import { useI18n } from 'vue-i18n';
 
 export class Props {
     public item: any;

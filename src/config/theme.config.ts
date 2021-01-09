@@ -9,7 +9,6 @@ export default {
 
     /**
      * 参数 : 图标
-     *
      */
     image: 'https://gitee.com/pear-admin/Pear-Admin-Layui/raw/master/admin/images/logo.png',
 

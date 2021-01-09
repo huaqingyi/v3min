@@ -34,7 +34,7 @@
                     class="menu-item"
                     :class="[active === route.path ? 'is-active' : '']"
                 >
-                    <span>{{ (route.meta || {}).title }}</span>
+                    <span>{{ $t((route.meta || {}).title) }}</span>
                 </router-link>
             </template>
         </div>
@@ -61,9 +61,21 @@
                     </a-menu>
                 </template>
             </a-dropdown>
-            <div class="menu-item">
+            <!-- <div class="menu-item">
                 <GlobalOutlined />
-            </div>
+            </div>-->
+            <a-dropdown class="menu-item">
+                <GlobalOutlined />
+                <template #overlay>
+                    <a-menu>
+                        <template v-for="(item, idx) in langList" :key="`${idx}`">
+                            <a-menu-item @click="handleClickMenu(item)">
+                                <span class="ml-1">{{ $t(item.name) }}</span>
+                            </a-menu-item>
+                        </template>
+                    </a-menu>
+                </template>
+            </a-dropdown>
             <a-dropdown class="avatar-item">
                 <a-avatar
                     src="https://portrait.gitee.com/uploads/avatars/user/1611/4835367_Jmysy_1578975358.png"
@@ -112,8 +124,10 @@ import {
 import { Component, Vue } from 'vue-pandora-decorators';
 import { Layout, Permission } from '@/store/modules';
 import { filter } from 'lodash';
-import { nextTick } from 'vue';
+import { computed, nextTick, watch } from 'vue';
 import { message } from 'ant-design-vue';
+import { langs, LangsType, setLanguage } from '@/locales';
+import { useI18n } from 'vue-i18n';
 
 @Component({
     components: {
@@ -155,6 +169,10 @@ export default class extends Vue {
         return filter(Permission.dynamicRoutes, r => (r.meta || {}).hidden !== true);
     }
 
+    public get langList() {
+        return langs();
+    }
+
     public active: string;
 
     constructor() {
@@ -164,7 +182,7 @@ export default class extends Vue {
 
     public mounted() {
         this.active = this.$route.matched[0].path;
-        this.$watch('$route', () => this.active = this.$route.matched[0].path);
+        watch(computed(() => this.$route.path), () => this.active = this.$route.matched[0].path);
     }
 
     public toPath(route: RouteRecordRaw) {
@@ -232,6 +250,11 @@ export default class extends Vue {
 
     public updateFullscreen() {
         Layout.updateFullscreen();
+    }
+
+    public handleClickMenu(lang: LangsType) {
+        setLanguage(lang.value);
+        // this.$i18n.locale = getLocale() as any;
     }
 }
 </script>

@@ -7,8 +7,8 @@ import router from '@/router';
 export async function bootstrap() {
     await Promise.all<any>([
         router.isReady(),
-        ...map(interceptors, its => its(app)),
         ...map(middlewares, use => use(app)),
+        ...map(interceptors, its => its(app)),
     ]);
     return app.mount('#app');
 }

@@ -1,11 +1,10 @@
 import { App } from 'vue';
-import Axios, { AxiosInstance } from 'axios';
+import { AxiosInstance } from 'axios';
 import { message } from 'ant-design-vue';
 import { Service } from 'vue-pandora-decorators';
-import config from '@/config/request';
 
 export function requestIntercepter(app: App) {
-    const $http: AxiosInstance = Axios.create(config);
+    const $http: AxiosInstance = app.config.globalProperties.$http;
 
     $http.interceptors.request.use((config) => {
         let token = sessionStorage.getItem('token') || '';
@@ -33,7 +32,6 @@ export function requestIntercepter(app: App) {
     });
 
     Service.prototype.http = $http;
-    app.config.globalProperties.$http = $http;
 
     return app;
 }

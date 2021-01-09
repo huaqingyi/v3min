@@ -3,6 +3,7 @@ import config from '@/config/locale';
 import type { I18nOptions } from 'vue-i18n';
 import { messages, getLocale, setI18n } from '@/locales';
 import { createI18n, I18n } from 'vue-i18n';
+import { getI18n } from '../../../locales/index';
 
 const localeData: I18nOptions = {
     legacy: false,
@@ -21,6 +22,6 @@ const i18n = createI18n(localeData) as I18n;
 setI18n(i18n);
 
 export async function i18ns(app: App) {
-    app.use(i18n);
+    getI18n().install(app);
     return app;
 }
