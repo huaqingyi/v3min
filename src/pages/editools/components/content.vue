@@ -6,7 +6,6 @@
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-pandora-decorators';
-import 'vue3-draggable-resizable/dist/Vue3DraggableResizable.css';
 
 @Component
 export default class extends Vue {

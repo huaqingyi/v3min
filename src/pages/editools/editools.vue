@@ -1,17 +1,21 @@
 <template>
-    <DraggableContainer>
-        <section class="container">
-            <section class="left-container">
-                <LeftContainer />
-            </section>
-            <section class="content-container">
-                <Content />
-            </section>
-            <section class="right-container">
-                <RightContainer />
-            </section>
+    <section class="container">
+        <section class="left-container">
+            <LeftContainer />
         </section>
-    </DraggableContainer>
+        <section class="dragger">
+            <DraggableContainer>
+                <section class="dragger-content">
+                    <section class="content-container">
+                        <Content />
+                    </section>
+                    <section class="right-container">
+                        <RightContainer />
+                    </section>
+                </section>
+            </DraggableContainer>
+        </section>
+    </section>
 </template>
 <script lang="ts">
 import { Component, useAction, useState, Vue } from 'vue-pandora-decorators';
@@ -21,11 +25,13 @@ import RightContainer from './components/right/index.vue';
 import { EditoolStore, IEditoolState } from './store';
 import { ComponentsType } from './service';
 import { DraggableContainer } from 'vue3-draggable-resizable';
+import Vue3DraggableResizable from 'vue3-draggable-resizable';
+import 'vue3-draggable-resizable/dist/Vue3DraggableResizable.css';
 
 @Component({
     components: {
         LeftContainer, RightContainer, Content,
-        DraggableContainer,
+        DraggableContainer, Vue3DraggableResizable,
     },
 })
 export default class extends Vue {
@@ -49,15 +55,42 @@ export default class extends Vue {
 }
 </script>
 <style lang="scss">
+.parent {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #000;
+    user-select: none;
+    .container {
+        display: flex;
+        .content {
+            flex: 1;
+        }
+        .edit {
+            position: relative;
+            width: 25%;
+        }
+    }
+}
 .container {
     height: 100%;
     display: flex;
-    .left-container,
-    .right-container {
+    .left-container {
         flex: 1;
     }
-    .content-container {
-        width: 65%;
+    .dragger {
+        display: flex;
+        flex: 80%;
+        .dragger-content {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            .content-container {
+                flex: 1;
+            }
+            .right-container {
+                width: 25%;
+            }
+        }
     }
 }
 </style>

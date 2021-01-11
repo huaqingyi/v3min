@@ -7,9 +7,8 @@
                     :key="`${data.type}-${idx}`"
                     class="component-grid-item"
                 >
-                    <Vue3DraggableResizable initW="100%">
-                        <img class="grid-img" :src="require(`@/libs/${component}/cover.png`)" />
-                    </Vue3DraggableResizable>
+                    <!-- <Vue3DraggableResizable initW="100%"></Vue3DraggableResizable> -->
+                    <img class="grid-img" :src="require(`@/libs/${component}/cover.png`)" />
                     <div class="grid-text">{{ component }}</div>
                 </div>
             </div>
@@ -66,7 +65,6 @@ export default class extends Vue {
             flex: 25%;
             width: 25%;
             padding: 0.35rem;
-            padding-top: 25%;
 
             .grid-img {
                 width: 100%;

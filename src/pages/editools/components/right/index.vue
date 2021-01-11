@@ -1,5 +1,5 @@
 <template>
-    <a-tabs>
+    <a-tabs class="root">
         <a-tab-pane key="components">
             <template #tab>
                 <span>
@@ -32,4 +32,7 @@ export default class extends Vue {
 }
 </script>
 <style lang="scss">
+.ant-tabs {
+    position: initial;
+}
 </style>
