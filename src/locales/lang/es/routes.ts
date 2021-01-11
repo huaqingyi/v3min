@@ -4,5 +4,6 @@ export default {
         welcome: 'Home',
         workbench: 'Workbench',
         analysis: 'Analysis',
+        editools: 'Editor Tools',
     },
 };

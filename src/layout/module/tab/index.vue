@@ -11,7 +11,7 @@
             <a-tab-pane
                 v-for="pane in panes"
                 :key="pane.path"
-                :tab="pane.title"
+                :tab="$t(pane.title)"
                 :closable="pane.closable"
             ></a-tab-pane>
         </a-tabs>

@@ -26,4 +26,13 @@ export default class extends Vue {
 }
 </script>
 <style lang="scss">
+.parent {
+    width: 200px;
+    height: 200px;
+    // position: absolute;
+    top: 100px;
+    left: 100px;
+    border: 1px solid #000;
+    user-select: none;
+}
 </style>

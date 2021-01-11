@@ -1,6 +1,7 @@
 import { NavigationGuardNext, RouteLocationNormalized } from 'vue-router';
 import NProgress from 'nprogress';
 import { App } from '@/store/modules';
+import { $t } from '@/locales';
 
 export enum PermissionErrorType {
     SUCCESS = 'success',
@@ -19,7 +20,7 @@ export class ProgressController {
     public start() {
         NProgress.start();
         const { meta: { title = '' } } = this.to;
-        document.title = title;
+        document.title = $t(title).value;
         App.execCancelToken();
     }
 
