@@ -20,6 +20,7 @@
     "axios": "^0.21.1",
     "core-js": "^3.6.5",
     "lodash": "^4.17.20",
+    "node-emoji": "^1.10.0",
     "nprogress": "^0.2.0",
     "path": "^0.12.7",
     "register-service-worker": "^1.7.2",

@@ -8,7 +8,11 @@
                     class="component-grid-item"
                 >
                     <!-- <Vue3DraggableResizable initW="100%"></Vue3DraggableResizable> -->
-                    <img class="grid-img" :src="require(`@/libs/${component}/cover.png`)" />
+                    <img
+                        v-draggerables="{ type: draggerType.COMPONENT, component, id: idx }"
+                        class="grid-img"
+                        :src="require(`@/libs/${component}/cover.png`)"
+                    />
                     <div class="grid-text">{{ component }}</div>
                 </div>
             </div>
@@ -21,6 +25,7 @@ import { Component, useState, Vue } from 'vue-pandora-decorators';
 import { ComponentsType } from '../../service';
 import { EditoolStore, IEditoolState } from '../../store';
 import Vue3DraggableResizable from 'vue3-draggable-resizable';
+import { DraggerType } from '@/directives';
 
 @Component({
     components: {
@@ -46,6 +51,10 @@ export default class extends Vue {
 
     public get components() {
         return useState<IEditoolState>(EditoolStore).components;
+    }
+
+    public get draggerType() {
+        return DraggerType;
     }
 
     public activeKey: string[];
