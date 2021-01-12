@@ -23,11 +23,11 @@ export default [
                 meta: { title: t('routes.dashboard.analysis'), icon: 'HomeOutlined', fixed: true },
                 component: () => import('@/pages/tables/tables.vue'),
             },
-            {
-                path: 'editools',
-                meta: { title: t('routes.dashboard.editools'), icon: 'HomeOutlined', fixed: true },
-                component: () => import('@/pages/editools/editools.vue'),
-            }
+            // {
+            //     path: 'editools',
+            //     meta: { title: t('routes.dashboard.editools'), icon: 'HomeOutlined', fixed: true },
+            //     component: () => import('@/pages/editools/editools.vue'),
+            // }
         ]
     },
     // {
