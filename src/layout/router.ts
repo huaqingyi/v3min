@@ -1,51 +1,56 @@
 import { t } from '@/locales';
 import { RouteRecordRaw } from 'vue-router';
+import Layout from './index.vue';
 
 export default [
     {
         path: '/',
-        component: () => import('./index.vue'),
+        // component: Layout,
         meta: { hidden: true },
-        redirect: '/dashboard/index',
+        redirect: '/cluster',
     },
     {
-        path: '/dashboard',
-        meta: { title: t('routes.dashboard.dashboard'), icon: 'HomeOutlined' },
-        component: () => import('./index.vue'),
+        path: '/cluster',
+        component: Layout,
         children: [
             {
-                path: 'index',
-                meta: { title: t('routes.dashboard.welcome'), icon: 'DashboardOutlined', fixed: true },
-                component: () => import('@/pages/dashboard/dashboard.vue'),
+                path: '',
+                meta: { title: t('routes.cluster'), icon: 'ClusterOutlined', fixed: true },
+                component: () => import('@/pages/cluster/index.vue'),
             },
-            {
-                path: 'tables',
-                meta: { title: t('routes.dashboard.analysis'), icon: 'HomeOutlined', fixed: true },
-                component: () => import('@/pages/tables/tables.vue'),
-            },
-            // {
-            //     path: 'editools',
-            //     meta: { title: t('routes.dashboard.editools'), icon: 'HomeOutlined', fixed: true },
-            //     component: () => import('@/pages/editools/editools.vue'),
-            // }
         ]
     },
-    // {
-    //     path: '/test',
-    //     meta: { title: '测试', icon: 'HomeOutlined' },
-    //     component: () => import('./index.vue'),
-    //     redirect: '/test/index',
-    //     children: [
-    //         {
-    //             path: 'index',
-    //             meta: { title: '测试页', icon: 'DashboardOutlined', fixed: true },
-    //             component: () => import('@/pages/dashboard/dashboard.vue'),
-    //         },
-    //         {
-    //             path: 'tables',
-    //             meta: { title: '测试页1', icon: 'HomeOutlined', fixed: true },
-    //             component: () => import('@/pages/tables/tables.vue'),
-    //         }
-    //     ]
-    // },
+    {
+        path: '/project',
+        component: Layout,
+        children: [
+            {
+                path: '',
+                meta: { title: t('routes.project'), icon: 'FundProjectionScreenOutlined', fixed: true },
+                component: () => import('@/pages/project/index.vue'),
+            },
+        ]
+    },
+    {
+        path: '/task',
+        component: Layout,
+        children: [
+            {
+                path: '',
+                meta: { title: t('routes.task'), icon: 'BgColorsOutlined', fixed: true },
+                component: () => import('@/pages/task/index.vue'),
+            },
+        ]
+    },
+    {
+        path: '/template',
+        component: Layout,
+        children: [
+            {
+                path: '',
+                meta: { title: t('routes.template'), icon: 'FormOutlined', fixed: true },
+                component: () => import('@/pages/template/index.vue'),
+            },
+        ]
+    },
 ] as RouteRecordRaw[];

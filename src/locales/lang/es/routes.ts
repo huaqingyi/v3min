@@ -1,9 +1,6 @@
 export default {
-    dashboard: {
-        dashboard: 'Dashboard',
-        welcome: 'Home',
-        workbench: 'Workbench',
-        analysis: 'Analysis',
-        editools: 'Editor Tools',
-    },
+    cluster: '集群',
+    project: '项目',
+    task: '任务',
+    template: '项目模板',
 };

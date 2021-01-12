@@ -1,25 +1,37 @@
 <template>
     <template v-if="(item.meta || {}).hidden !== true">
-        <!-- if item.children is not null 渲染 a-sub-menu -->
-        <a-sub-menu :key="item.path" v-if="item.children && item.children.length > 0">
-            <template v-slot:title>
-                <span>
-                    <comp-var v-if="level === 0" :component="MenuIcon" />
-                    <span v-else>
-                        <div class="indent"></div>
-                    </span>
-                    <span>{{ $t((item.meta || {}).title) }}</span>
-                </span>
+        <template v-if="item.children && item.children.length > 0">
+            <template v-if="item.children.length === 1">
+                <a-menu-item
+                    v-bind="$attrs"
+                    :key="resolvePath(item.path, true)"
+                >
+                    <router-link :to="resolvePath(item.path, true)">
+                        <comp-var :component="ResolveMenuIcon(item.children[0].meta)" />
+                        <span>{{ $t((item.children[0].meta || {}).title) }}</span>
+                    </router-link>
+                </a-menu-item>
             </template>
-            <!-- 递归 item.children -->
-            <sub-menu
-                v-for="child in item.children"
-                :key="resolvePath(child.path)"
-                :item="child"
-                :level="level + 1"
-                :base-path="resolvePath(child.path)"
-            />
-        </a-sub-menu>
+            <a-sub-menu v-else :key="item.path">
+                <template v-slot:title>
+                    <span>
+                        <comp-var v-if="level === 0" :component="MenuIcon" />
+                        <span v-else>
+                            <div class="indent"></div>
+                        </span>
+                        <span>{{ $t((item.meta || {}).title) }}</span>
+                    </span>
+                </template>
+                <!-- 递归 item.children -->
+                <sub-menu
+                    v-for="child in item.children"
+                    :key="resolvePath(child.path)"
+                    :item="child"
+                    :level="level + 1"
+                    :base-path="resolvePath(child.path)"
+                />
+            </a-sub-menu>
+        </template>
         <!-- if item.chilren is null 渲染 a-menu-item -->
         <a-menu-item v-bind="$attrs" :key="resolvePath(item.path, true)" v-else>
             <router-link :to="resolvePath(item.path, true)">
@@ -56,6 +68,15 @@ export default class extends Vue.with(Props) {
 
     public get MenuIcon() {
         return (Icons as any)[(this.item.meta || {}).icon] || {};
+    }
+
+    public ResolveMenuIcon(meta: any = {}) {
+        if (!meta.icon) return {};
+        return (Icons as any)[meta.icon] || {};
+    }
+
+    public resolve(routePath: string, itemPath: string) {
+        return path.resolve(routePath, itemPath);
     }
 
     public resolvePath(routePath: string, single?: boolean) {

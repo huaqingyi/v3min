@@ -5,13 +5,7 @@ export const routes: RouteRecordRaw[] = [
     {
         path: '/:pathMatch(.*)*',
         name: 'notall',
-        component: () => import('@/pages/login/login.vue'),
-        meta: { hidden: true },
-    },
-    {
-        path: '/login',
-        name: 'login',
-        component: () => import('@/pages/login/login.vue'),
+        component: () => import('@/pages/errors/404.vue'),
         meta: { hidden: true },
     },
 ];

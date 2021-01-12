@@ -1,3 +1,3 @@
 export enum LocaleType {
-    en = 'en', zh = 'zh', es = 'es', jp = 'jp',
+    en = 'en_US', zh = 'zh_CN', es = 'es_US', jp = 'ja_JP',
 }
