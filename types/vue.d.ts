@@ -5,5 +5,6 @@ declare module "@vue/runtime-core" {
     interface ComponentCustomProperties {
         $http: AxiosInstance;
         $t: (translateKey: string) => string;
+        $setRef: (callback: (t: this) => any & string) => any;
     }
 }

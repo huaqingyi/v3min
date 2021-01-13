@@ -28,7 +28,12 @@ export function requestIntercepter(app: App) {
             message.error({ title: '错误', message: '登录超时, 请重新登录' });
             window.location.reload();
         }
-        return response;
+        if (data?.data?.TalefunFramework) {
+            const resp = data.data.TalefunFramework;
+            delete data.data;
+            data = { ...data, ...resp };
+        }
+        return data;
     });
 
     Service.prototype.http = $http;

@@ -1,10 +1,8 @@
 import { App } from 'vue';
 import VXETable from 'vxe-table';
-import { getI18n } from '@/locales/index';
+import config from '@/config/table';
 
 export function vextable(app: App) {
-    VXETable.setup({
-        i18n: (key, args) => getI18n().global.t(key, args),
-    });
+    VXETable.setup(config);
     return app.use(VXETable);
 }
