@@ -6,7 +6,7 @@ export const routes: RouteRecordRaw[] = [
         path: '/:pathMatch(.*)*',
         name: 'notall',
         component: () => import('@/pages/errors/404.vue'),
-        meta: { hidden: true },
+        meta: { hidden: true, noCache: true },
     },
 ];
 

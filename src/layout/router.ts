@@ -15,6 +15,7 @@ export default [
         children: [
             {
                 path: '',
+                name: 'cluster',
                 meta: { title: t('routes.cluster'), icon: 'ClusterOutlined', fixed: true },
                 component: () => import('@/pages/cluster/index.vue'),
             },
