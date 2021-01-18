@@ -1,4 +1,4 @@
-import { computed, createApp, defineComponent } from 'vue';
+import { computed, createApp } from 'vue';
 import ServiceWorkerUpdatePopup from '@/pwa/components/ServiceWorkerUpdatePopup.vue';
 import { useI18n } from 'vue-i18n';
 import { getLocale } from '@/locales';
@@ -7,7 +7,7 @@ import { ProviderOidc } from '@/oidc';
 import config from '@/config/yf';
 import whiteList from '@/config/whitList';
 
-export const app = createApp(defineComponent({
+export const app = createApp({
     components: { ServiceWorkerUpdatePopup },
     setup() {
         const locale = computed(() => (useI18n().messages.value as any)[getLocale()]);
@@ -23,4 +23,4 @@ export const app = createApp(defineComponent({
             </ProviderOidc>
         );
     }
-}));
+});

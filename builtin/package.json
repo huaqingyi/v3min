@@ -1,0 +1,44 @@
+{
+  "name": "builtin",
+  "version": "1.0.0",
+  "description": "",
+  "main": "packages",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node serve.js",
+    "serve": "node serve.js",
+    "build": "webpack --config webpack.config.js",
+    "pack": "webpack --config webpack.component.js"
+  },
+  "author": "huaqingyi",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "vue": "^3.0.5",
+    "vue-pandora-decorators": "^1.0.7"
+  },
+  "devDependencies": {
+    "@koa/router": "^10.0.0",
+    "@vue/compiler-sfc": "^3.0.2",
+    "chokidar": "^3.5.1",
+    "css-loader": "^3.6.0",
+    "file-loader": "^5.1.0",
+    "fs-extra": "^9.0.1",
+    "koa": "^2.13.1",
+    "koa-static": "^5.0.0",
+    "koa-webpack": "^6.0.0",
+    "koa-webpack-dev-middleware": "^2.0.2",
+    "koa-webpack-hot-middleware": "^1.0.3",
+    "koa2-cors": "^2.0.6",
+    "mini-css-extract-plugin": "^0.9.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.4",
+    "terser-webpack-plugin": "^5.1.1",
+    "ts-loader": "^8.0.14",
+    "url-loader": "^3.0.0",
+    "vue-loader": "^16.0.0-rc.1",
+    "webpack": "^4.44.2",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0",
+    "webpack-merge": "^5.7.3"
+  }
+}
