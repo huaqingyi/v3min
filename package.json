@@ -30,7 +30,6 @@
         "vue-router": "^4.0.2",
         "vuex": "^4.0.0-0",
         "vxe-table": "^4.0.0-beta.7",
-        "wx-auth": "^1.1.7",
         "xe-utils": "^3.0.4"
     },
     "devDependencies": {

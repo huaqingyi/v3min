@@ -1,11 +1,11 @@
 import Axios, { AxiosInstance } from 'axios';
-import { WXUserInfo } from 'wx-auth';
+import { DevlopmentUser } from '../types';
 
 export class Service {
     public http: AxiosInstance;
     public accessToken?: string;
     public appName?: string;
-    public userInfo?: WXUserInfo;
+    public userInfo?: DevlopmentUser;
     constructor() {
         this.http = Axios.create({
             baseURL: 'http://weichat-certcenter.talefun.com/',
@@ -38,7 +38,7 @@ export class Service {
         });
     }
 
-    public async getUserInfo(code: string): Promise<WXUserInfo | false> {
+    public async getUserInfo(code: string): Promise<DevlopmentUser | false> {
         if (!this.appName) {
             console.error('请配置 appName .');
             return false;
