@@ -15,3 +15,40 @@
         }
     }
 }
+
+.flex-btns {
+    display: flex;
+
+    .btn {
+        flex   : 1;
+        display: flex;
+
+        &:before {
+            content: "";
+            flex   : 1;
+        }
+
+        &:after {
+            content: "";
+            flex   : 1;
+        }
+    }
+}
+
+.centext {
+    text-align: center;
+}
+
+#content {
+    .root {
+        height: 100%;
+
+        .vxe-table {
+            min-height: 350px;
+        }
+    }
+
+    .vxe-table .vxe-cell {
+        max-height: initial;
+    }
+}

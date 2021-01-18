@@ -68,7 +68,7 @@ class PermissionStore extends VuexModule implements IPermissionState {
 
     @Action
     public isLogin() {
-        return sessionStorage.getItem('token') ? true : false;
+        return sessionStorage.getItem('sessiontoken') ? true : false;
     }
 
     @Action
@@ -88,7 +88,7 @@ class PermissionStore extends VuexModule implements IPermissionState {
     @Action
     public resetToken(token?: string) {
         this.removeToken();
-        if (token) { sessionStorage.setItem('token', token); }
+        if (token) { sessionStorage.setItem('sessiontoken', token); }
     }
 
     @Action
@@ -98,7 +98,7 @@ class PermissionStore extends VuexModule implements IPermissionState {
 
     @Mutation
     private removeToken() {
-        sessionStorage.removeItem('token');
+        sessionStorage.removeItem('sessiontoken');
     }
 
     // @Action

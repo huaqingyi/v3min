@@ -74,3 +74,8 @@ export default class extends Vue {
     }
 }
 </script>
+<style lang="less" scoped>
+#layout {
+    height: 100vh;
+}
+</style>

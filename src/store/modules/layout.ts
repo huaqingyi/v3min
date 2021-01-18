@@ -1,7 +1,7 @@
 import { VuexModule, Module, Mutation, Action, getModule, MutationAction } from 'vue-pandora-decorators';
 import config from '@/config/theme.config';
 import store from '@/store';
-import { isBoolean } from 'lodash';
+import { filter, isBoolean } from 'lodash';
 import { RouteLocationNormalized, RouteRecordRaw } from 'vue-router';
 
 export interface ILayoutState {
@@ -334,7 +334,11 @@ class LayoutStore extends VuexModule implements ILayoutState {
 
     @Action
     public initPanes(panes: RouteRecordRaw[]) {
-        this.initPanesChange(panes);
+        const ps = filter(panes, (pane: any) => {
+            if (pane.noCache !== true) { return true; }
+            return false;
+        });
+        this.initPanesChange(ps);
     }
 
     @Mutation

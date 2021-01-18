@@ -93,9 +93,7 @@
                             >系统设置</a>
                         </a-menu-item>
                         <a-menu-divider />
-                        <a-menu-item key="3">
-                            <a-menu-item @click="logOut">注销登录</a-menu-item>
-                        </a-menu-item>
+                        <a-menu-item key="3" @click="logOut">注销登录</a-menu-item>
                     </a-menu>
                 </template>
             </a-dropdown>

@@ -117,9 +117,23 @@ module.exports = {
     configureWebpack: config => {
         config.plugins.push(
             new webpack.DefinePlugin({
-                LOCAL: `'${process.env.NODE_ENV}'`,
-                VUE_APP_API_BASE_URL: `'${process.env.VUE_APP_API_BASE_URL}'`,
+                PRODUCTION: process.env.NODE_ENV === 'production' ? true : false,
                 // TOKEN: `'这里可以和后端协商免验证的令牌, 用于dev开发模式'`
+                LOCAL: `'${process.env.NODE_ENV}'`,
+                DEBUGTOKEN: `'${process.env.NODE_ENV === 'development' ? '0LVgVPwwIs60pmAmJy2OrjdooRROKwSO' : ''}'`,
+                VUE_APP_API_BASE_URL: `'${process.env.VUE_APP_API_BASE_URL}'`,
+
+                // 玉符配置
+                WELLKNOWN:`'${process.env.WELLKNOWN}'`,
+                CLIENTID:`'${process.env.CLIENTID}'`,
+                CLIENTSECRET:`'${process.env.CLIENTSECRET}'`,
+                REDIRECTURI:`'${process.env.REDIRECTURI}'`,
+                
+                // 微信配置
+                APPID:`'${process.env.APPID}'`,
+                NONCESTR:`'${process.env.NONCESTR}'`,
+                AGENTID:`'${process.env.AGENTID}'`,
+                APPNAME:`'${process.env.APPNAME}'`,
             })
         );
     },

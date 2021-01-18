@@ -139,7 +139,8 @@ export default class extends Vue {
                         title: meta.title,
                         name: currentName, noCache: meta.noCache || false,
                         path: _path.resolve(prefix, path),
-                        closable: !(currentName === pane.name),
+                        // closable: !(currentName === pane.name),
+                        closable: false,
                     } as any);
                 }
             }

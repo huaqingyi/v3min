@@ -15,6 +15,7 @@ export default [
         children: [
             {
                 path: '',
+                name: 'cluster',
                 meta: { title: t('routes.cluster'), icon: 'ClusterOutlined', fixed: true },
                 component: () => import('@/pages/cluster/index.vue'),
             },
@@ -32,17 +33,6 @@ export default [
         ]
     },
     {
-        path: '/task',
-        component: Layout,
-        children: [
-            {
-                path: '',
-                meta: { title: t('routes.task'), icon: 'BgColorsOutlined', fixed: true },
-                component: () => import('@/pages/task/index.vue'),
-            },
-        ]
-    },
-    {
         path: '/template',
         component: Layout,
         children: [
@@ -50,6 +40,17 @@ export default [
                 path: '',
                 meta: { title: t('routes.template'), icon: 'FormOutlined', fixed: true },
                 component: () => import('@/pages/template/index.vue'),
+            },
+        ]
+    },
+    {
+        path: '/task',
+        component: Layout,
+        children: [
+            {
+                path: '',
+                meta: { title: t('routes.task'), icon: 'BgColorsOutlined', fixed: true },
+                component: () => import('@/pages/task/index.vue'),
             },
         ]
     },

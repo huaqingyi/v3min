@@ -2,6 +2,10 @@ import { computed, createApp, defineComponent } from 'vue';
 import ServiceWorkerUpdatePopup from '@/pwa/components/ServiceWorkerUpdatePopup.vue';
 import { useI18n } from 'vue-i18n';
 import { getLocale } from '@/locales';
+import { bootstrap } from '@/oidc/yf';
+import { ProviderOidc } from '@/oidc';
+import config from '@/config/yf';
+import whiteList from '@/config/whitList';
 
 export const app = createApp(defineComponent({
     components: { ServiceWorkerUpdatePopup },
@@ -11,10 +15,12 @@ export const app = createApp(defineComponent({
     },
     render() {
         return (
-            <a-config-provider locale={this.locale}>
-                <router-view></router-view>
-                <service-worker-update-popup />
-            </a-config-provider>
+            <ProviderOidc whiteList={whiteList} oidc={bootstrap(config)}>
+                <a-config-provider locale={this.locale}>
+                    <router-view></router-view>
+                    <service-worker-update-popup />
+                </a-config-provider>
+            </ProviderOidc>
         );
     }
 }));

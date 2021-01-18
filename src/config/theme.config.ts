@@ -110,6 +110,6 @@ export default {
     /**
      * 参数：默认的tab栏
      */
-    defaultTab: 'dashboard-console'
+    defaultTab: 'cluster'
 
 }
